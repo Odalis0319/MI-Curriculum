@@ -1,0 +1,448 @@
+/* Global Settings */
+:root {
+    --primary-color: #1e3a8a;
+    /* Navy Blue */
+    --secondary-color: #64748b;
+    /* Slate */
+    --accent-color: #0ea5e9;
+    /* Sky Blue */
+    --text-color: #334155;
+    --bg-color: #f1f5f9;
+    --card-bg: #ffffff;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Page Container */
+.page-container {
+    background-color: var(--card-bg);
+    max-width: 900px;
+    width: 100%;
+    border-radius: 8px;
+    /* Slight rounded corners for modern feel, not too much for executive */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Header */
+.cv-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.cv-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.cv-header h2 {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-info a {
+    color: white;
+    position: relative;
+}
+
+.contact-info a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s;
+}
+
+.contact-info a:hover::after {
+    width: 100%;
+}
+
+.contact-info a:hover {
+    color: var(--accent-color);
+}
+
+/* Layout */
+.cv-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 3rem;
+}
+
+/* Section Styling */
+.section-title {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.section-block {
+    margin-bottom: 2.5rem;
+}
+
+/* Text */
+.profile-text {
+    text-align: justify;
+    color: #475569;
+}
+
+/* Experience Items */
+.experience-item,
+.education-item {
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.experience-item:hover {
+    transform: translateX(5px);
+}
+
+.exp-header,
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 0.2rem;
+}
+
+.exp-header h4,
+.edu-header h4 {
+    font-size: 1.1rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.date {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+.role,
+.institution {
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.experience-item ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.experience-item ul li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.experience-item ul li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.details {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* Sidebar Styling */
+.sidebar-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background-color: #f8fafc;
+    border-radius: 6px;
+    border-left: 3px solid var(--primary-color);
+    transition: box-shadow 0.3s;
+}
+
+.sidebar-section:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-title {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.skill-category {
+    margin-bottom: 1rem;
+}
+
+.skill-category strong {
+    display: block;
+    color: #1e293b;
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+}
+
+.skill-category p {
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.competition-item {
+    margin-bottom: 1rem;
+}
+
+.competition-item strong {
+    display: block;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+.date-sm {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.2rem;
+}
+
+.details-sm {
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+.simple-list {
+    list-style: none;
+    padding: 0;
+}
+
+.simple-list li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #475569;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.simple-list li:last-child {
+    border-bottom: none;
+}
+
+.tags-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tags-list li {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #475569;
+}
+
+/* Footer */
+.cv-footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8fafc;
+    color: var(--secondary-color);
+    font-size: 0.8rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cv-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+
+    .cv-header {
+        padding: 2rem 1rem;
+    }
+
+    .cv-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+    }
+
+    .page-container {
+        box-shadow: none;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 0;
+        animation: none;
+    }
+
+    .cv-header {
+        background: white;
+        color: #000;
+        padding: 1rem 0 2rem 0;
+        border-bottom: 2px solid #000;
+        text-align: left;
+        /* Harvard style usually left aligned header */
+    }
+
+    .cv-header h1 {
+        color: #000;
+        font-size: 24pt;
+        text-align: center;
+    }
+
+    .cv-header h2 {
+        color: #444;
+        font-size: 14pt;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .contact-info {
+        color: #000;
+        justify-content: center;
+    }
+
+    .contact-info a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .cv-grid {
+        display: block;
+        /* Stack for print to maximize width often better, but grid is okay if it fits */
+        padding: 0;
+        grid-template-columns: 70% 30%;
+        /* Keep ratio */
+    }
+
+    .section-title {
+        color: #000;
+        border-bottom: 1px solid #000;
+    }
+
+    .section-title::after {
+        display: none;
+    }
+
+    .role,
+    .institution {
+        color: #000;
+        font-weight: bold;
+    }
+
+    .sidebar-section {
+        background: none;
+        border: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+        page-break-inside: avoid;
+    }
+
+    .cv-footer {
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    /* Ensure links are printed if needed, or hide if not relevant on paper */
+    /* a[href]:after { content: " (" attr(href) ")"; } */
+}
